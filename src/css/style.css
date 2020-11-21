@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap");
+* {
+  font-family: "Oxygen", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ff6b6c;
+}
+
+.App {
+  width: 100%;
+  border-style: solid;
+  border-color: #a49fac;
+  border-width: 10px;
+  border-radius: 20px;
+
+  background-color: #9ed0e6;
+}

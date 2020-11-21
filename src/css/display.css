@@ -1,0 +1,11 @@
+#display {
+  width: 100%;
+  text-align: end;
+
+  border-bottom-style: solid;
+  border-bottom-width: 10px;
+  border-bottom-color: #a49fac;
+}
+#display-value {
+  margin-right: 50px;
+}
