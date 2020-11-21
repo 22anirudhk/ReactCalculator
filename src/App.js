@@ -52,7 +52,7 @@ class App extends React.Component {
 
   equals() {
 
-    if(this.state.input == "" || this.state.previousNum == "") {
+    if(this.state.input === "" || this.state.previousNum === "") {
       return;
     }
     var output;
@@ -64,16 +64,16 @@ class App extends React.Component {
     console.log(this.state.previousNum);
     console.log(this.state.currentNum);
 
-    if(this.state.operator == "add") {
+    if(this.state.operator === "add") {
       output = parseInt(this.state.previousNum) + parseInt(this.state.currentNum);
     }
-    if(this.state.operator == "subtract") {
+    if(this.state.operator === "subtract") {
       output = parseInt(this.state.previousNum) - parseInt(this.state.currentNum);
     }
-    if(this.state.operator == "multiply") {
+    if(this.state.operator === "multiply") {
       output = parseInt(this.state.previousNum) * parseInt(this.state.currentNum);
     }
-    if(this.state.operator == "divide") {
+    if(this.state.operator === "divide") {
       output = parseInt(this.state.previousNum) * 1.0 / parseInt(this.state.currentNum);
     }
 
@@ -86,6 +86,7 @@ class App extends React.Component {
       <div className="App">
         <Display displayValue={this.state.input}/>
         <table id = "numpad">
+          <tbody>
           <tr>
             <td>
               <Button
@@ -222,6 +223,7 @@ class App extends React.Component {
               />
             </td>
           </tr>
+          </tbody>
         </table>
       </div>
     );

@@ -13,7 +13,7 @@ export default class Button extends React.Component {
     }
     return (
       <div>
-        <button class="number-button" onClick={onClickFunction}>
+        <button className="number-button" onClick={onClickFunction}>
           {this.props.buttonValue}
         </button>
       </div>
