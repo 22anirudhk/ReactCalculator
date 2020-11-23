@@ -52,14 +52,21 @@ class App extends React.Component {
 
   equals() {
 
-    if(this.state.input === "" || this.state.previousNum === "") {
+    if(this.state.previousNum === "") {
       return;
     }
+
     var output;
 
     this.state.currentNum = this.state.input; //doesn't work w/ with setState
     //setState is asynchronous so it may not finish before continuing, so just set it directly
     //"setState calls are not guaranteed to be applied immediately."
+
+    if(this.state.input === "") {
+      this.state.currentNum = 0;
+    }
+
+   
 
     console.log(this.state.previousNum);
     console.log(this.state.currentNum);
