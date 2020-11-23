@@ -1,6 +1,8 @@
 # ReactCalculator
 
-## A calculator.....made with React⚛️!
+## A calculator.....made with React ⚛️!
+
+<img src=https://github.com/22anirudhk/ReactCalculator/blob/master/react-calculator-picture.png />
 
 
 ## Installation and Setup Instructions
