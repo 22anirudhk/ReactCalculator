@@ -109,12 +109,8 @@ class App extends React.Component {
       output = roundTo(output, 10);
     }
 
-    //Remove unneeded 0's after roundTo possibly 
-    if(output.includes(".")) {
-      //Can convert to string back and then to float again (it works).
-      output = output.toString();
-      output = parseFloat(output);
-    }
+    //Remove unneeded 0's after roundTo by parsing parseFloat
+    output = parseFloat(output);
 
     this.setState({currentNum:"", previousNum:"", operator:"", input:output, operationDone:true})
   }
