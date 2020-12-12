@@ -62,6 +62,7 @@ class App extends React.Component {
     //setState is asynchronous so it may not finish before continuing, so just set it directly
     //"setState calls are not guaranteed to be applied immediately."
 
+    //Default second term to 0
     if(this.state.input === "") {
       this.state.currentNum = 0;
     }
@@ -71,17 +72,18 @@ class App extends React.Component {
     console.log(this.state.previousNum);
     console.log(this.state.currentNum);
 
+    //You need parse because state stores it as string
     if(this.state.operator === "add") {
-      output = parseInt(this.state.previousNum) + parseInt(this.state.currentNum);
+      output = parseFloat(this.state.previousNum) + parseFloat(this.state.currentNum);
     }
     if(this.state.operator === "subtract") {
-      output = parseInt(this.state.previousNum) - parseInt(this.state.currentNum);
+      output = parseFloat(this.state.previousNum) - parseFloat(this.state.currentNum);
     }
     if(this.state.operator === "multiply") {
-      output = parseInt(this.state.previousNum) * parseInt(this.state.currentNum);
+      output = parseFloat(this.state.previousNum) * parseFloat(this.state.currentNum);
     }
     if(this.state.operator === "divide") {
-      output = parseInt(this.state.previousNum) * 1.0 / parseInt(this.state.currentNum);
+      output = parseFloat(this.state.previousNum) * 1.0 / parseFloat(this.state.currentNum);
     }
 
     this.setState({currentNum:"", previousNum:"", operator:"", input:output, operationDone:true})
