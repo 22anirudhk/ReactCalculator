@@ -51,6 +51,7 @@ class App extends React.Component {
   }
 
   equals() {
+    
 
     if(this.state.previousNum === "") {
       return;
@@ -68,9 +69,29 @@ class App extends React.Component {
     }
 
    
-
     console.log(this.state.previousNum);
     console.log(this.state.currentNum);
+
+    //Rounding and decimals in Javascript don't work as expected. This function helps. (Ex: W/o it, 1.2 * 9 becomes 1.79999)
+    //Keep function inside since not "class method"
+    //https://stackoverflow.com/questions/15762768/javascript-math-round-to-two-decimal-places
+    function roundTo(n, digits) {
+      var negative = false;
+      if (digits === undefined) {
+        digits = 0;
+      }
+      if (n < 0) {
+          negative = true;
+          n = n * -1;
+      }
+      var multiplicator = Math.pow(10, digits);
+      n = parseFloat((n * multiplicator).toFixed(11));
+      n = (Math.round(n) / multiplicator).toFixed(digits);
+      if (negative) {
+          n = (n * -1).toFixed(digits);
+      }
+      return n;
+    }
 
     //You need parse because state stores it as string
     if(this.state.operator === "add") {
@@ -81,9 +102,18 @@ class App extends React.Component {
     }
     if(this.state.operator === "multiply") {
       output = parseFloat(this.state.previousNum) * parseFloat(this.state.currentNum);
+      output = roundTo(output, 10);
     }
     if(this.state.operator === "divide") {
       output = parseFloat(this.state.previousNum) * 1.0 / parseFloat(this.state.currentNum);
+      output = roundTo(output, 10);
+    }
+
+    //Remove unneeded 0's after roundTo possibly 
+    if(output.includes(".")) {
+      //Can convert to string back and then to float again (it works).
+      output = output.toString();
+      output = parseFloat(output);
     }
 
     this.setState({currentNum:"", previousNum:"", operator:"", input:output, operationDone:true})
@@ -203,9 +233,9 @@ class App extends React.Component {
             </td>
             <td>
               <Button
-                buttonValue=" "
+                buttonValue="."
                 type="number"
-                handleClick={ () => {}}
+                handleClick={this.addToInput}
               />
             </td>
             <td>
